@@ -33,7 +33,7 @@ export default function Home() {
           style={{ fontFamily: "var(--font-display)" }}
         >
           Find NYC&apos;s
-          <br /> scratch kitchens.
+          <br /> Scratch Kitchens.
         </h1>
         <p className="mt-5 max-w-md text-base text-ink/70">
           As the supply chain consolidates and everything starts to taste the
