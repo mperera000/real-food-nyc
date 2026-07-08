@@ -32,3 +32,19 @@ body {
   color: var(--ink);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Map pin — color is set per restaurant via the --pin variable */
+.rf-pin {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--pin, #c6543a);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.rf-pin:hover {
+  transform: scale(1.2);
+}
