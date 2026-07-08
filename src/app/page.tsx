@@ -32,8 +32,8 @@ export default function Home() {
           className="mt-4 text-4xl leading-tight text-green sm:text-5xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Find NYC restaurants that
-          <br /> actually cook real food.
+          Find NYC&apos;s
+          <br /> scratch kitchens.
         </h1>
         <p className="mt-5 max-w-md text-base text-ink/70">
           As the supply chain consolidates and everything starts to taste the
