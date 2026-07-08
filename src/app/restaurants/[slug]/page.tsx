@@ -20,7 +20,7 @@ export async function generateMetadata({
 
   const where = spot.neighborhood ?? "NYC";
   return {
-    title: `${spot.name} — ${where} scratch kitchen | Real Food NYC`,
+    title: `${spot.name}, a ${where} scratch kitchen | Real Food NYC`,
     description:
       spot.evidence_note ??
       `${spot.name} is a real-food spot in ${where} that cooks from scratch and sources honestly.`,
@@ -58,7 +58,7 @@ export default async function RestaurantPage({
           ← Back to map
         </Link>
 
-        <div className="mt-6 overflow-hidden rounded-3xl border border-line bg-paper/90 shadow-[0_10px_30px_rgba(80,70,40,0.08)]">
+        <div className="rise-in mt-6 overflow-hidden rounded-3xl border border-line bg-paper/90 shadow-[0_10px_30px_rgba(80,70,40,0.08)]">
           <div
             className="h-1.5 w-full"
             style={{ background: TIER_PIN_COLOR[spot.trust_tier] }}
@@ -107,7 +107,7 @@ export default async function RestaurantPage({
                 href={directions}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl bg-tomato px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-transform hover:-translate-y-0.5"
+                className="rounded-xl bg-[#A8442F] px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-transform hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 Directions
               </a>

@@ -173,7 +173,7 @@ function DetailBox({
             href={directions}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 rounded-xl bg-tomato py-2 text-center text-sm font-medium text-white"
+            className="flex-1 rounded-xl bg-[#A8442F] py-2 text-center text-sm font-medium text-white transition-transform active:scale-[0.98]"
           >
             Directions
           </a>

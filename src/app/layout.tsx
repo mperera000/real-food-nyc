@@ -19,7 +19,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Real Food NYC — restaurants that actually cook real food",
+  title: "Real Food NYC: restaurants that actually cook real food",
   description:
     "A hand-picked map of NYC restaurants that cook from scratch and source good ingredients. Coming soon.",
 };

@@ -5,7 +5,7 @@ import { getRestaurants } from "@/lib/restaurants";
 import type { Restaurant } from "@/lib/types";
 
 export const metadata = {
-  title: "The list — NYC scratch kitchens | Real Food NYC",
+  title: "The list of NYC scratch kitchens | Real Food NYC",
   description:
     "Browse every hand-picked NYC restaurant that cooks from scratch and sources honestly, filterable by how it's verified.",
 };
