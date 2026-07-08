@@ -35,7 +35,7 @@ export default async function ListsPage() {
             </p>
           </div>
           <Link
-            href="/"
+            href="/map"
             className="rounded-full bg-paper px-4 py-2 text-sm text-green hover:bg-cream"
           >
             ← Map

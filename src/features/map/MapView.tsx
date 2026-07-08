@@ -70,12 +70,13 @@ export default function MapView({ restaurants }: { restaurants: Restaurant[] }) 
       {/* Header: brand + list link on the left, legend on the right */}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between px-4 py-3">
         <div className="pointer-events-auto flex items-center gap-2">
-          <span
-            className="rounded-full bg-cream/90 px-3 py-1 text-sm text-green shadow-sm"
+          <Link
+            href="/"
+            className="rounded-full bg-cream/90 px-3 py-1 text-sm text-green shadow-sm hover:bg-cream"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Real Food NYC
-          </span>
+          </Link>
           <Link
             href="/lists"
             className="rounded-full bg-cream/90 px-3 py-1 text-sm text-green shadow-sm hover:bg-cream"

@@ -39,7 +39,7 @@ export default function WhyPage() {
       <VeggieBackdrop />
       <div className="relative z-10 mx-auto max-w-2xl px-6 py-10">
         <Link
-          href="/"
+          href="/map"
           className="inline-block rounded-full bg-paper px-4 py-2 text-sm text-green hover:bg-cream"
         >
           ← Back to map
