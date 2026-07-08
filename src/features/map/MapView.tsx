@@ -42,6 +42,8 @@ export default function MapView({ restaurants }: { restaurants: Restaurant[] }) 
       mapRef.current = map;
       map.addControl(new maplibregl.NavigationControl(), "top-right");
       map.on("click", () => setSelected(null));
+      // Make sure the map fills its container once layout settles.
+      map.on("load", () => map.resize());
 
       for (const spot of restaurants) {
         if (spot.latitude == null || spot.longitude == null) continue;
@@ -70,8 +72,8 @@ export default function MapView({ restaurants }: { restaurants: Restaurant[] }) 
   }, [restaurants]);
 
   return (
-    <div className="relative h-[100dvh] w-full">
-      <div ref={container} className="absolute inset-0" />
+    <div className="relative w-full">
+      <div ref={container} style={{ height: "100dvh", width: "100%" }} />
 
       {/* Header + legend */}
       <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between px-4 py-3">
