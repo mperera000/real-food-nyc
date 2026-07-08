@@ -82,6 +82,12 @@ export default function MapView({ restaurants }: { restaurants: Restaurant[] }) 
           >
             List
           </Link>
+          <Link
+            href="/why"
+            className="rounded-full bg-cream/90 px-3 py-1 text-sm text-green shadow-sm hover:bg-cream"
+          >
+            Why
+          </Link>
         </div>
         <div className="flex gap-2 rounded-full bg-cream/90 px-3 py-1 text-[11px] text-ink shadow-sm">
           <Legend color={TIER_PIN_COLOR.certified} label="Certified" />
