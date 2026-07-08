@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getRestaurantBySlug } from "@/lib/restaurants";
 import VeggieBackdrop from "@/components/VeggieBackdrop";
 import TierBadge from "@/components/TierBadge";
+import TierDot from "@/components/TierDot";
+import { TIER_PIN_COLOR } from "@/lib/types";
 import type { Metadata } from "next";
 
 type Params = { slug: string };
@@ -56,65 +58,70 @@ export default async function RestaurantPage({
           ← Back to map
         </Link>
 
-        <div className="mt-6 rounded-2xl border border-line bg-paper/90 p-6">
-          <h1
-            className="text-4xl text-green"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            {spot.name}
-          </h1>
-          <p className="mt-1 text-sm text-muted">
-            {spot.neighborhood}
-            {spot.borough ? ` · ${spot.borough}` : ""}
-          </p>
-
-          <div className="mt-4">
-            <TierBadge tier={spot.trust_tier} />
-          </div>
-
-          {spot.evidence_note && (
-            <div className="mt-6">
-              <h2
-                className="text-sm text-green"
+        <div className="mt-6 overflow-hidden rounded-3xl border border-line bg-paper/90 shadow-[0_10px_30px_rgba(80,70,40,0.08)]">
+          <div
+            className="h-1.5 w-full"
+            style={{ background: TIER_PIN_COLOR[spot.trust_tier] }}
+          />
+          <div className="p-7 sm:p-9">
+            <div className="flex items-center gap-3">
+              <TierDot tier={spot.trust_tier} size={13} />
+              <h1
+                className="text-4xl leading-none text-green sm:text-5xl"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                How we know
-              </h2>
-              <p className="mt-1 text-ink/80">{spot.evidence_note}</p>
+                {spot.name}
+              </h1>
             </div>
-          )}
+            <p className="mt-2 pl-[25px] text-sm text-muted">
+              {spot.neighborhood}
+              {spot.borough ? ` · ${spot.borough}` : ""}
+            </p>
 
-          {spot.farms?.length ? (
-            <div className="mt-5">
-              <h2
-                className="text-sm text-green"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Sources from
-              </h2>
-              <p className="mt-1 text-ink/80">{spot.farms.join(", ")}</p>
+            <div className="mt-4 pl-[25px]">
+              <TierBadge tier={spot.trust_tier} />
             </div>
-          ) : null}
 
-          <div className="mt-7 flex flex-wrap gap-3">
-            <a
-              href={directions}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl bg-tomato px-5 py-2 text-sm font-medium text-white"
-            >
-              Directions
-            </a>
-            {spot.source_url && (
+            {spot.evidence_note && (
+              <div className="mt-7 border-t border-line pt-5">
+                <h2 className="text-xs font-medium uppercase tracking-widest text-butter">
+                  How we know
+                </h2>
+                <p className="mt-2 text-lg leading-relaxed text-ink/85">
+                  {spot.evidence_note}
+                </p>
+              </div>
+            )}
+
+            {spot.farms?.length ? (
+              <div className="mt-5 border-t border-line pt-5">
+                <h2 className="text-xs font-medium uppercase tracking-widest text-butter">
+                  Sources from
+                </h2>
+                <p className="mt-2 text-ink/85">{spot.farms.join(", ")}</p>
+              </div>
+            ) : null}
+
+            <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={spot.source_url}
+                href={directions}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-xl bg-cream px-5 py-2 text-sm font-medium text-green"
+                className="rounded-xl bg-tomato px-6 py-2.5 text-sm font-medium text-white shadow-sm transition-transform hover:-translate-y-0.5"
               >
-                Check the source
+                Directions
               </a>
-            )}
+              {spot.source_url && (
+                <a
+                  href={spot.source_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl border border-line bg-cream px-6 py-2.5 text-sm font-medium text-green transition-colors hover:border-green/30"
+                >
+                  Check the source
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import type { Map as MlMap } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { slugify } from "@/lib/slug";
 import TierBadge from "@/components/TierBadge";
+import TierDot from "@/components/TierDot";
 import { TIER_PIN_COLOR, type Restaurant } from "@/lib/types";
 
 // NYC, roughly Manhattan.
@@ -122,17 +123,25 @@ function DetailBox({
 
   return (
     <div className="absolute inset-x-0 bottom-0 z-10 p-3">
-      <div className="mx-auto max-w-md rounded-2xl bg-paper p-4 shadow-lg">
+      <div className="mx-auto max-w-md overflow-hidden rounded-3xl bg-paper shadow-[0_8px_30px_rgba(80,70,40,0.18)]">
+        <div
+          className="h-1.5 w-full"
+          style={{ background: TIER_PIN_COLOR[spot.trust_tier] }}
+        />
+        <div className="p-4">
         <div className="mx-auto mb-2 h-1 w-9 rounded-full bg-line" />
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h2
-              className="text-xl text-green"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              {spot.name}
-            </h2>
-            <p className="text-xs text-muted">
+            <span className="flex items-center gap-2">
+              <TierDot tier={spot.trust_tier} />
+              <h2
+                className="text-xl text-green"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {spot.name}
+              </h2>
+            </span>
+            <p className="pl-[18px] text-xs text-muted">
               {spot.neighborhood}
               {spot.borough ? ` · ${spot.borough}` : ""}
             </p>
@@ -174,6 +183,7 @@ function DetailBox({
           >
             Details
           </Link>
+        </div>
         </div>
       </div>
     </div>

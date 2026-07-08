@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { slugify } from "@/lib/slug";
 import TierBadge from "@/components/TierBadge";
+import TierDot from "@/components/TierDot";
 import type { Restaurant, TrustTier } from "@/lib/types";
 
 type FilterKey = "all" | TrustTier;
@@ -56,18 +57,21 @@ export default function ListView({
             <li key={spot.id}>
               <Link
                 href={`/restaurants/${slugify(spot.name)}`}
-                className="block rounded-2xl border border-line bg-paper px-4 py-3 transition-colors hover:bg-cream"
+                className="block rounded-2xl border border-line bg-paper/85 px-5 py-4 transition-all duration-150 hover:-translate-y-0.5 hover:border-green/30 hover:bg-paper hover:shadow-[0_6px_20px_rgba(80,70,40,0.10)]"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <span
-                    className="text-lg text-green"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {spot.name}
+                  <span className="flex items-center gap-2.5">
+                    <TierDot tier={spot.trust_tier} />
+                    <span
+                      className="text-xl text-green"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      {spot.name}
+                    </span>
                   </span>
                   <TierBadge tier={spot.trust_tier} />
                 </div>
-                <p className="mt-1 text-sm text-muted">
+                <p className="mt-1.5 pl-[22px] text-sm text-muted">
                   {spot.neighborhood}
                   {spot.farms?.length ? ` · ${spot.farms.join(", ")}` : ""}
                 </p>
