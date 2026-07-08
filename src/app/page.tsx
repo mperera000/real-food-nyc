@@ -1,65 +1,62 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-6 py-24 text-center">
+      {/* Painterly veggie backdrop — low opacity so text always stays readable */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-15">
+        <svg className="absolute left-[4%] top-[12%] w-28" viewBox="0 0 48 48">
+          <ellipse cx="24" cy="28" rx="14" ry="13" fill="#C6543A" />
+          <path d="M18 15 q6 -5 12 0 q-6 3 -12 0" fill="#7FA06A" />
+        </svg>
+        <svg className="absolute right-[6%] top-[18%] w-32 rotate-[16deg]" viewBox="0 0 48 48">
+          <path d="M24 40 L24 14" stroke="#7FA06A" strokeWidth="3" />
+          <path d="M24 24 q-11 -2 -13 -11 q10 0 13 8" fill="#8FB07A" />
+          <path d="M24 30 q11 -2 13 -11 q-10 0 -13 8" fill="#6f9159" />
+        </svg>
+        <svg className="absolute bottom-[12%] left-[10%] w-24 -rotate-[8deg]" viewBox="0 0 48 48">
+          <path d="M22 16 L30 38 q-6 4 -12 0 z" fill="#E0975E" />
+          <path d="M27 16 l6 -4" stroke="#7FA06A" strokeWidth="3" />
+        </svg>
+        <svg className="absolute bottom-[16%] right-[9%] w-28 -rotate-[14deg]" viewBox="0 0 48 48">
+          <path
+            d="M11 26 q0 -14 13 -14 q13 0 13 14 l0 9 q0 3 -3 3 l-20 0 q-3 0 -3 -3 z"
+            fill="#DBA13A"
+          />
+        </svg>
+      </div>
+
+      <div className="relative z-10 flex max-w-xl flex-col items-center">
+        <p className="text-xs font-semibold tracking-widest text-butter">
+          REAL FOOD NYC · COMING SOON
+        </p>
+        <h1
+          className="mt-4 text-4xl leading-tight text-green sm:text-5xl"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          Find NYC restaurants that
+          <br /> actually cook real food.
+        </h1>
+        <p className="mt-5 max-w-md text-base text-ink/70">
+          As the supply chain consolidates and everything starts to taste the
+          same, here&apos;s a map of the places that still cook from scratch and
+          source honestly.
+        </p>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-2 text-sm">
+          <span className="rounded-full bg-[#F0E4C4] px-3 py-1 font-medium text-[#7a5a12]">
+            ★ USDA Organic
+          </span>
+          <span className="rounded-full bg-[#DCE7D3] px-3 py-1 font-medium text-[#3f5a45]">
+            Names its farms
+          </span>
+          <span className="rounded-full bg-[#F3DED3] px-3 py-1 font-medium text-[#8a3a24]">
+            From scratch
+          </span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+        <p className="mt-10 text-sm text-muted">
+          The map is being planted. 🌱
+        </p>
+      </div>
+    </main>
   );
 }
