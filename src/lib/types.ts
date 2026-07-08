@@ -8,6 +8,20 @@ export const TRUST_TIER_LABELS: Record<TrustTier, string> = {
   scratch: "From scratch",
 };
 
+// One home for tier colors — the map pins and the badges read from these.
+export const TIER_PIN_COLOR: Record<TrustTier, string> = {
+  certified: "#DBA13A",
+  names_farms: "#7FA06A",
+  scratch: "#C6543A",
+};
+
+export const TIER_BADGE_STYLE: Record<TrustTier, { bg: string; color: string }> =
+  {
+    certified: { bg: "#F0E4C4", color: "#7a5a12" },
+    names_farms: { bg: "#DCE7D3", color: "#3f5a45" },
+    scratch: { bg: "#F3DED3", color: "#8a3a24" },
+  };
+
 export type Restaurant = {
   id: string;
   name: string;

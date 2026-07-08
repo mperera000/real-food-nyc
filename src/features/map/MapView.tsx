@@ -1,21 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import type { Map as MlMap } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { TRUST_TIER_LABELS, type Restaurant, type TrustTier } from "@/lib/types";
-
-// Pin + badge colors, one home, keyed by trust tier.
-const TIER_COLOR: Record<TrustTier, string> = {
-  certified: "#DBA13A",
-  names_farms: "#7FA06A",
-  scratch: "#C6543A",
-};
-const TIER_BADGE: Record<TrustTier, { bg: string; color: string }> = {
-  certified: { bg: "#F0E4C4", color: "#7a5a12" },
-  names_farms: { bg: "#DCE7D3", color: "#3f5a45" },
-  scratch: { bg: "#F3DED3", color: "#8a3a24" },
-};
+import { slugify } from "@/lib/slug";
+import TierBadge from "@/components/TierBadge";
+import { TIER_PIN_COLOR, type Restaurant } from "@/lib/types";
 
 // NYC, roughly Manhattan.
 const NYC_CENTER: [number, number] = [-73.98, 40.75];
@@ -50,7 +41,7 @@ export default function MapView({ restaurants }: { restaurants: Restaurant[] }) 
 
         const pin = document.createElement("button");
         pin.className = "rf-pin";
-        pin.style.setProperty("--pin", TIER_COLOR[spot.trust_tier]);
+        pin.style.setProperty("--pin", TIER_PIN_COLOR[spot.trust_tier]);
         pin.setAttribute("aria-label", spot.name);
         pin.addEventListener("click", (e) => {
           e.stopPropagation();
@@ -75,18 +66,26 @@ export default function MapView({ restaurants }: { restaurants: Restaurant[] }) 
     <div className="relative w-full">
       <div ref={container} style={{ height: "100dvh", width: "100%" }} />
 
-      {/* Header + legend */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between px-4 py-3">
-        <span
-          className="rounded-full bg-cream/90 px-3 py-1 text-sm text-green shadow-sm"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          Real Food NYC
-        </span>
+      {/* Header: brand + list link on the left, legend on the right */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between px-4 py-3">
+        <div className="pointer-events-auto flex items-center gap-2">
+          <span
+            className="rounded-full bg-cream/90 px-3 py-1 text-sm text-green shadow-sm"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Real Food NYC
+          </span>
+          <Link
+            href="/lists"
+            className="rounded-full bg-cream/90 px-3 py-1 text-sm text-green shadow-sm hover:bg-cream"
+          >
+            List
+          </Link>
+        </div>
         <div className="flex gap-2 rounded-full bg-cream/90 px-3 py-1 text-[11px] text-ink shadow-sm">
-          <Legend color={TIER_COLOR.certified} label="Certified" />
-          <Legend color={TIER_COLOR.names_farms} label="Farms" />
-          <Legend color={TIER_COLOR.scratch} label="Scratch" />
+          <Legend color={TIER_PIN_COLOR.certified} label="Certified" />
+          <Legend color={TIER_PIN_COLOR.names_farms} label="Farms" />
+          <Legend color={TIER_PIN_COLOR.scratch} label="Scratch" />
         </div>
       </div>
 
@@ -116,7 +115,6 @@ function DetailBox({
   spot: Restaurant;
   onClose: () => void;
 }) {
-  const badge = TIER_BADGE[spot.trust_tier];
   const directions =
     spot.latitude != null && spot.longitude != null
       ? `https://www.google.com/maps/dir/?api=1&destination=${spot.latitude},${spot.longitude}`
@@ -148,12 +146,9 @@ function DetailBox({
           </button>
         </div>
 
-        <span
-          className="mt-2 inline-block rounded-full px-3 py-1 text-xs font-medium"
-          style={{ background: badge.bg, color: badge.color }}
-        >
-          {TRUST_TIER_LABELS[spot.trust_tier]}
-        </span>
+        <div className="mt-2">
+          <TierBadge tier={spot.trust_tier} />
+        </div>
 
         {spot.evidence_note && (
           <p className="mt-3 text-sm text-ink/80">{spot.evidence_note}</p>
@@ -173,16 +168,12 @@ function DetailBox({
           >
             Directions
           </a>
-          {spot.source_url && (
-            <a
-              href={spot.source_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 rounded-xl bg-cream py-2 text-center text-sm font-medium text-green"
-            >
-              Learn more
-            </a>
-          )}
+          <Link
+            href={`/restaurants/${slugify(spot.name)}`}
+            className="flex-1 rounded-xl bg-cream py-2 text-center text-sm font-medium text-green"
+          >
+            Details
+          </Link>
         </div>
       </div>
     </div>
