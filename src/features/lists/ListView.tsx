@@ -53,11 +53,12 @@ export default function ListView({
         <p className="text-muted">No spots in this filter yet.</p>
       ) : (
         <ul className="flex flex-col gap-3">
-          {shown.map((spot) => (
+          {shown.map((spot, i) => (
             <li key={spot.id}>
               <Link
                 href={`/restaurants/${slugify(spot.name)}`}
-                className="block rounded-2xl border border-line bg-paper/85 px-5 py-4 transition-all duration-150 hover:-translate-y-0.5 hover:border-green/30 hover:bg-paper hover:shadow-[0_6px_20px_rgba(80,70,40,0.10)]"
+                style={{ animationDelay: `${i * 60}ms` }}
+                className="rise-in block rounded-2xl border border-line bg-paper/85 px-5 py-4 transition-all duration-150 hover:-translate-y-0.5 hover:border-green/30 hover:bg-paper hover:shadow-[0_6px_20px_rgba(80,70,40,0.10)]"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="flex items-center gap-2.5">

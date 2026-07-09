@@ -3,6 +3,9 @@ import VeggieBackdrop from "@/components/VeggieBackdrop";
 import TierDot from "@/components/TierDot";
 import { getRestaurants } from "@/lib/restaurants";
 
+// Always render fresh so newly added restaurants show without a rebuild.
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   let count = 0;
   try {
@@ -49,7 +52,7 @@ export default async function Home() {
 
       {/* How we verify */}
       <section className="relative z-10 mx-auto max-w-2xl px-6 pb-24">
-        <div className="rounded-2xl border border-line bg-paper/85 p-7 text-center">
+        <div className="food-border rounded-2xl p-7 text-center">
           <p className="text-sm text-muted">
             {count} hand-picked spots, each shown with how we know:
           </p>

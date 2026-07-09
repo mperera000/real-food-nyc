@@ -54,6 +54,16 @@ export default function MapView({ restaurants }: { restaurants: Restaurant[] }) 
           .setLngLat([spot.longitude, spot.latitude])
           .addTo(map);
       }
+
+      // Frame every pin on load (NYC through upstate), so nothing sits off-screen.
+      const points = restaurants
+        .filter((s) => s.latitude != null && s.longitude != null)
+        .map((s) => [s.longitude as number, s.latitude as number] as [number, number]);
+      if (points.length > 1) {
+        const bounds = new maplibregl.LngLatBounds(points[0], points[0]);
+        for (const p of points) bounds.extend(p);
+        map.fitBounds(bounds, { padding: 64, maxZoom: 13, duration: 0 });
+      }
     })();
 
     return () => {
@@ -130,7 +140,7 @@ function DetailBox({
 
   return (
     <div className="absolute inset-x-0 bottom-0 z-10 p-3">
-      <div className="mx-auto max-w-md overflow-hidden rounded-3xl bg-paper shadow-[0_8px_30px_rgba(80,70,40,0.18)]">
+      <div className="mx-auto max-w-md overflow-hidden rounded-2xl bg-paper shadow-[0_8px_30px_rgba(80,70,40,0.18)]">
         <div
           className="h-1.5 w-full"
           style={{ background: TIER_PIN_COLOR[spot.trust_tier] }}

@@ -31,10 +31,9 @@ export function Herbs({ className }: MotifProps) {
 export function Carrot({ className }: MotifProps) {
   return (
     <svg className={className} viewBox="0 0 48 48">
-      <path d="M22 15 L30 40 q-6 4 -12 0z" fill="#E0975E" />
-      <path d="M27 16 L30 39" stroke="#CF8348" strokeWidth="1.5" opacity="0.5" />
-      <path d="M20 23 h9 M19 29 h11 M20 35 h8" stroke="#CF8348" strokeWidth="1" opacity="0.45" />
-      <path d="M24 15 l-6 -6 M26 14 v-7 M27 15 l6 -5" stroke="#7FA06A" strokeWidth="3" strokeLinecap="round" />
+      <path d="M18 18 Q24 15 30 18 L24 40 Z" fill="#E0975E" />
+      <path d="M20 23 h8 M21 28 h6 M22 33 h4" stroke="#CF8348" strokeWidth="1" opacity="0.45" />
+      <path d="M24 18 l-5 -6 M24 17 v-8 M24 18 l5 -6" stroke="#7FA06A" strokeWidth="3" strokeLinecap="round" />
     </svg>
   );
 }
@@ -88,10 +87,56 @@ export function Radish({ className }: MotifProps) {
 export function Greens({ className }: MotifProps) {
   return (
     <svg className={className} viewBox="0 0 48 48">
-      <ellipse cx="24" cy="31" rx="12" ry="9" fill="#8FB07A" />
-      <path d="M24 31 q-11 -10 -7 -23 q9 6 7 23z" fill="#7FA06A" />
-      <path d="M24 31 q11 -10 7 -23 q-9 6 -7 23z" fill="#9DB889" />
-      <path d="M24 31 V9" stroke="#6f9159" strokeWidth="2" strokeLinecap="round" />
+      <path d="M24 41 C16 34 12 24 13 15 C20 20 24 30 24 41z" fill="#8FB07A" />
+      <path d="M24 41 C32 34 36 24 35 15 C28 20 24 30 24 41z" fill="#7FA06A" />
+      <path d="M24 41 C21 30 22 18 24 10 C26 18 27 30 24 41z" fill="#9DB889" />
+      <path d="M18 21 C22 26 23 33 24 41 M30 21 C26 26 25 33 24 41" stroke="#6f9159" strokeWidth="0.8" fill="none" opacity="0.5" />
+    </svg>
+  );
+}
+
+export function Milk({ className }: MotifProps) {
+  return (
+    <svg className={className} viewBox="0 0 48 48">
+      <rect x="21" y="9" width="6" height="3" rx="1" fill="#93AEB8" />
+      <rect x="22" y="12" width="4" height="5" fill="#E4EBED" />
+      <path d="M18 23 q0 -6 6 -6 q6 0 6 6 l0 13 q0 2 -2 2 l-8 0 q-2 0 -2 -2z" fill="#E4EBED" stroke="#9FB6BE" strokeWidth="1.3" />
+      <rect x="18.5" y="28" width="11" height="7" rx="1" fill="#C4D5DA" />
+      <path d="M21 31 h6" stroke="#93AEB8" strokeWidth="1" />
+    </svg>
+  );
+}
+
+export function Asparagus({ className }: MotifProps) {
+  return (
+    <svg className={className} viewBox="0 0 48 48">
+      <path d="M18 42 C18 30 18 18 20 13" stroke="#8FB07A" strokeWidth="3.2" strokeLinecap="round" fill="none" />
+      <path d="M24 42 C24 28 24 16 24 11" stroke="#7FA06A" strokeWidth="3.6" strokeLinecap="round" fill="none" />
+      <path d="M30 42 C30 30 30 18 28 13" stroke="#6f9159" strokeWidth="3.2" strokeLinecap="round" fill="none" />
+      <ellipse cx="20" cy="12" rx="2" ry="3.5" fill="#5C7D49" />
+      <ellipse cx="24" cy="10" rx="2.2" ry="4" fill="#5C7D49" />
+      <ellipse cx="28" cy="12" rx="2" ry="3.5" fill="#5C7D49" />
+      <rect x="15" y="28" width="18" height="4" rx="2" fill="#DBA13A" />
+    </svg>
+  );
+}
+
+export function Garlic({ className }: MotifProps) {
+  return (
+    <svg className={className} viewBox="0 0 48 48">
+      <path d="M24 40 q-9 0 -9 -11 q0 -8 9 -14 q9 6 9 14 q0 11 -9 11z" fill="#EBE1C7" stroke="#C2AF83" strokeWidth="1.3" />
+      <path d="M24 15 v-5" stroke="#A8935F" strokeWidth="2" strokeLinecap="round" />
+      <path d="M24 40 q-4 -1 -6 -11 M24 40 q4 -1 6 -11 M24 40 V16" stroke="#C2AF83" strokeWidth="1" fill="none" opacity="0.85" />
+    </svg>
+  );
+}
+
+export function Eggs({ className }: MotifProps) {
+  return (
+    <svg className={className} viewBox="0 0 48 48">
+      <ellipse cx="20" cy="31" rx="7" ry="9" fill="#F3ECDC" stroke="#C9B78E" strokeWidth="1.3" />
+      <ellipse cx="29" cy="28" rx="7" ry="9" fill="#F7F1E4" stroke="#C9B78E" strokeWidth="1.3" />
+      <ellipse cx="27" cy="24" rx="2.4" ry="3.4" fill="#FDFAF2" opacity="0.7" />
     </svg>
   );
 }

@@ -10,6 +10,8 @@ export const metadata = {
     "Browse every hand-picked NYC restaurant that cooks from scratch and sources honestly, filterable by how it's verified.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function ListsPage() {
   let restaurants: Restaurant[] = [];
   try {

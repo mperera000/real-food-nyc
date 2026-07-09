@@ -8,6 +8,8 @@ export const metadata = {
     "A map of NYC restaurants that cook from scratch and source good ingredients.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function MapPage() {
   let restaurants: Restaurant[] = [];
   try {

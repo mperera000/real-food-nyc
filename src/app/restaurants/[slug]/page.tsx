@@ -7,6 +7,8 @@ import TierDot from "@/components/TierDot";
 import { TIER_PIN_COLOR } from "@/lib/types";
 import type { Metadata } from "next";
 
+export const dynamic = "force-dynamic";
+
 type Params = { slug: string };
 
 export async function generateMetadata({
@@ -58,7 +60,7 @@ export default async function RestaurantPage({
           ← Back to map
         </Link>
 
-        <div className="rise-in mt-6 overflow-hidden rounded-3xl border border-line bg-paper/90 shadow-[0_10px_30px_rgba(80,70,40,0.08)]">
+        <div className="rise-in mt-6 overflow-hidden rounded-2xl border border-line bg-paper/90 shadow-[0_10px_30px_rgba(80,70,40,0.08)]">
           <div
             className="h-1.5 w-full"
             style={{ background: TIER_PIN_COLOR[spot.trust_tier] }}

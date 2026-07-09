@@ -33,6 +33,25 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+/* Colorful border drawn from the food-art palette (tomato, carrot, butter,
+   asparagus, milk-blue, onion, radish). Keeps rounded corners via clip trick. */
+.food-border {
+  border: 3px solid transparent;
+  background:
+    linear-gradient(#fbf6ec, #fbf6ec) padding-box,
+    linear-gradient(
+        105deg,
+        #c6543a,
+        #e0975e,
+        #dba13a,
+        #7fa06a,
+        #9bb8c4,
+        #b5789e,
+        #d96a7a
+      )
+      border-box;
+}
+
 /* Gentle, motivated entrance — content settles in (respects reduced motion) */
 @keyframes riseIn {
   from {
@@ -51,6 +70,19 @@ body {
   .rise-in {
     animation: none;
   }
+}
+
+/* Shape scale (one system, applied everywhere):
+   cards + border 16px (rounded-2xl) · buttons 12px (rounded-xl) · pills + dots full */
+
+/* Colorful double border in two food colors (tomato + sage) with a cream gap */
+.food-border {
+  background: var(--paper);
+  border: 3px solid #6f9159;
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 3px var(--cream),
+    0 0 0 6px #a9c6a0;
 }
 
 /* Map pin — color is set per restaurant via the --pin variable */
