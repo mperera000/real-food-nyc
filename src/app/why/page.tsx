@@ -171,8 +171,7 @@ export default function WhyPage() {
 
         <div className="mt-10 rounded-2xl border border-line bg-cream/60 p-6">
           <p className="text-ink/80">
-            That&apos;s the whole point of this map: find the restaurants that
-            already care, and give your dollar somewhere honest to go.
+            Discover restaurants making food from scratch, ingredient by ingredient.
           </p>
           <Link
             href="/lists"
