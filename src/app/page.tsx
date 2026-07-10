@@ -32,7 +32,7 @@ export default async function Home() {
         </h1>
         <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/75">
           A hand-picked map of restaurants that still cook real food and source
-          honestly. No industrial sameness.
+          honestly.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
