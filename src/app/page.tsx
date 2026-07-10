@@ -27,7 +27,7 @@ export default async function Home() {
           className="mt-4 text-5xl leading-[1.05] text-green sm:text-6xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Find NYC&apos;s
+          Find NY&apos;s
           <br /> Scratch Kitchens.
         </h1>
         <p className="mt-5 max-w-md text-lg leading-relaxed text-ink/75">
